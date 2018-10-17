@@ -5,18 +5,23 @@
 html {
     background-color: #343434;
     color: #16b1b5;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Cabin', sans-serif;
     font-weight: 200;
     font-size: 24px;
     scroll-behavior: smooth;
 }
 nav {
-    padding: 1em 0;
+    padding: .5em 0 2.5em 0;
     font-size: 16px;
-    text-align: center;
 }
 header {
     padding: 40px;
+}
+header nav {
+    text-align: right;
+}
+h1, h2, h3, h4, h6 {
+    font-family: 'Raleway', sans-serif;
 }
 h1 {
     line-height: .8;
@@ -28,20 +33,25 @@ p {
     margin: 1em 0;
 }
 a {
-    color: white;
+    color: rgba(255,255,255,.85);
     text-decoration: none;
     margin: 20px;
     padding: 20px;
     text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,1);
+    border: 1px solid rgba(255,255,255,.85);
+}
+a:hover {
+    border: 1px solid #16b1b5;
+    background-color: #16b1b5;
+    font-weight: 700;
 }
 div {
     break-inside: avoid;
 }
 #work {
-    background-color: #16b1b5;
+    background-color: #ffd000;
     padding: 40px;
-    color: white;
+    color: #1a1446;
     column-count: 2;
 }
 #hobbies {
@@ -50,7 +60,13 @@ div {
 #gallery {
     column-count: 3;
     column-gap: 0;
-    background-color: #16b1b5;
+    background-color: darkgray;
+}
+#gallery img {
+    opacity: 0.2;
+}
+#gallery img:hover {
+    opacity: .9;
 }
 img {
     width: 100%;
@@ -68,4 +84,7 @@ footer {
 }
 h4 {
     padding: 1em 0 2em;
+}
+strong {
+    font-weight: 700;
 }
