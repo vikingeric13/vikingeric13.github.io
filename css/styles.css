@@ -3,8 +3,39 @@
     box-sizing: border-box;
 }
 html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 2em 0 0 2em;
+    background-color: #000000;
+    color: green;
 }
 h1 {
-    font-family: 'KoHo', sans-serif;
+    line-height: 1.5em;
+    font-weight: 700;
+}
+h2 {
+    line-height: 1.5em;
+    font-weight: 600;
+}
+p {
+    padding-top: 1em;
+    padding-bottom: .5em;
+    font-weight: 500;
+}
+ul {
+    line-height: 1.25em;
+    list-style: none;
+    margin-left: -1.5em;
+}
+li:before { 
+    content: "- "
+}
+h1::first-letter {
+    background-color: green;
+    color: #000000;
+}
+a {
+    color: green;
+}
+em {
+    font-weight: 100i;
 }
