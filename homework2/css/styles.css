@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html {
+    font-family: 'Open Sans', sans-serif;
+    color: #033048;
+    background-color: #f0efef;
+}
+body {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+          "header header"
+          "main aside"
+          "section section"
+          "footer footer";
+    grid-gap: 1em;
+    justify-content: space-around;
+}
+h2 {
+    font-weight: 600;
+    font-size: 2em;
+    padding: 1em 0 .5em;
+}
+h3 {
+    font-size: 2em;
+    font-weight: 800;
+    padding-bottom: .25em;
+}
+a {
+    text-decoration: none;
+    color: #033048;
+}
+header {
+    background-color: #033048;
+    color: #ffffff;
+    padding: 2em 4em;
+    grid-area: header;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+main {
+    grid-area: main;
+    justify-content: center;
+    margin-left: 4em;
+    margin-bottom: 5em;
+}
+article {
+    font-size: 1.25em;
+}
+aside {
+    grid-area: aside;
+    padding: 2em 4em 0 0;
+    font-size: 1.25em;
+}
+footer {
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+    grid-area: footer;
+    margin: -1em;
+}
+aside div {
+    padding-bottom: 2em;
+}
+p + a {
+    font-weight: 600;
+}
+nav {
+    font-size: 1em;
+    font-weight: 600;
+}
+header a {
+    color: #f9e42e;
+    padding-left: 3em;
+}
+article a {
+    font-weight: 600;
+    float: right;
+    padding: 2em 0 1em;
+}
+article p {
+    font-weight: 300;
+    color: #606161;
+    clear: both;
+}
+article p::first-letter{
+    float: left;
+    font-size: 2em;
+}
+article img {
+    width: 100%;
+    height: calc(100vh / 3);
+    object-fit: cover;
+    object-position: center;
+    padding-bottom: 1em;
+}
+footer h1 {
+    color: #f9e42e;
+    padding-top: 2rem;
+    float: unset;
+}
+footer p {
+    padding-bottom: 2rem;
+}
+i {
+    color: #ffffff;
+    padding: 1em;
+    font-size: 2em;
+}
+#ad {
+    background-color: #ffffff;
+    width: 20vw;
+    height: 500px;
+    text-align: center;
+    padding: 1em;
+}
+hr {
+    clear: both;
+    border: #033048 solid .75px;
+}
+#cta {
+    background-color: #f9e42e;
+    padding: 2em;
+    font-weight: 600;
+    grid-area: section;
+    text-align: center;
+}
+#cta a {
+    background-color: #033048;
+    color: #ffffff;
+    padding: .75em 5em; 
+    border-radius: .25em;
+}
