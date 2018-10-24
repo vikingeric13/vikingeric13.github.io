@@ -11,13 +11,12 @@ html {
 body {
     display: grid;
     grid-template-columns: 65% 35%;
-    grid-template-rows: auto auto auto auto;
     grid-template-areas: 
           "header header"
           "main aside"
           "section section"
           "footer footer";
-    grid-gap: 1em;
+    grid-column-gap: 1em;
     justify-content: space-around;
 }
 h2 {
@@ -26,7 +25,7 @@ h2 {
     padding: 1em 0 .5em;
 }
 h3 {
-    font-size: 2em;
+    font-size: 1em;
     font-weight: 800;
     padding-bottom: .25em;
 }
@@ -57,18 +56,21 @@ aside {
     padding: 2em 4em 0 0;
     font-size: 1.25em;
 }
+#categories a {
+    display: block;
+}
 footer {
     background-color: #121212;
     color: #ffffff;
     text-align: center;
     grid-area: footer;
-    margin: -1em;
 }
 aside div {
     padding-bottom: 2em;
 }
 p + a {
     font-weight: 600;
+    font-size: 1.1em;
 }
 nav {
     font-size: 1em;
@@ -80,8 +82,10 @@ header a {
 }
 article a {
     font-weight: 600;
-    float: right;
+    display: block;
+    text-align: right;
     padding: 2em 0 1em;
+    border-bottom: 1px solid;
 }
 article p {
     font-weight: 300;
@@ -94,18 +98,17 @@ article p::first-letter{
 }
 article img {
     width: 100%;
-    height: calc(100vh / 3);
     object-fit: cover;
     object-position: center;
     padding-bottom: 1em;
 }
-footer h1 {
-    color: #f9e42e;
-    padding-top: 2rem;
-    float: unset;
+header img {
+    height: 2em;
+    margin-left: -3em;
 }
-footer p {
-    padding-bottom: 2rem;
+footer img {
+    margin-top: 2em;
+    height: 2em;
 }
 i {
     color: #ffffff;
@@ -119,20 +122,23 @@ i {
     text-align: center;
     padding: 1em;
 }
-hr {
-    clear: both;
-    border: #033048 solid .75px;
-}
 #cta {
     background-color: #f9e42e;
     padding: 2em;
-    font-weight: 600;
     grid-area: section;
     text-align: center;
 }
-#cta a {
+#cta button {
     background-color: #033048;
     color: #ffffff;
-    padding: .75em 5em; 
-    border-radius: .25em;
+    font-weight: 600;
+    font-size: 1.5em;
+    padding: 1rem 2rem; 
+    border-radius: .5em;
+    border-color: transparent;
+}
+footer::after {
+    content: 'Copyright 2015. Relaxr.';
+    display: block;
+    padding-bottom: 2em;
 }
