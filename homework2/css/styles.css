@@ -15,6 +15,15 @@ html {
     color: var(--dark-blue);
     background-color: var(--background-gray);
 }
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "aside"
+        "section"
+        "footer"
+}
 h2 {
     font-weight: 600;
     font-size: 2rem;
@@ -33,9 +42,11 @@ header {
     background-color: var(--dark-blue);
     color: var(--white);
     padding: 1rem 4rem;
+    grid-area: header;
 }
 main {
     margin: 0 2rem 5rem 2rem;
+    grid-area: main;
 }
 article {
     font-size: 1.25rem;
@@ -43,6 +54,7 @@ article {
 aside {
     padding: 0 2rem;
     font-size: 1.25rem;
+    grid-area: aside;
 }
 #categories a {
     display: block;
@@ -51,6 +63,7 @@ footer {
     background-color: var(--off-black);
     color: var(--white);
     text-align: center;
+    grid-area: footer;
 }
 aside div {
     padding-bottom: 2rem;
@@ -62,7 +75,9 @@ p + a {
 header nav {
     font-size: 1rem;
     font-weight: 600;
-    margin: 1.5rem 2rem;
+    margin: 1rem 1rem;
+    float: right;
+    text-align: right;
 }
 header a {
     color: var(--yellow);
@@ -114,6 +129,7 @@ i {
     background-color: var(--yellow);
     padding: 2rem;
     text-align: center;
+    grid-area: section;
 }
 #cta button {
     background-color: var(--dark-blue);
@@ -132,7 +148,7 @@ footer::after {
 @media (min-width: 768px) {
     body {
         display: grid;
-        grid-template-columns: 65% 35%;
+        grid-template-columns: 6.5fr 3.5fr;
         grid-template-areas: 
               "header header"
               "main aside"
@@ -142,7 +158,6 @@ footer::after {
         justify-content: space-around;
     }
     header {
-        grid-area: header;
         display: flex;
         align-items: baseline;
         justify-content: space-between;
@@ -155,22 +170,14 @@ footer::after {
         float: right;
     }
     main {
-        grid-area: main;
         justify-content: center;
         margin: 0 0 4rem 5rem;
     }
     aside {
-        grid-area: aside;
         padding: 2rem 4rem 0 0;
     }
     #ad {
         width: 20vw;
         height: 30rem;
-    }
-    #cta {
-        grid-area: section;
-    }
-    footer {
-        grid-area: footer;
     }
 }
