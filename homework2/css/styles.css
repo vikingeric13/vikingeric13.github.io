@@ -3,21 +3,17 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+:root {
+    --background-gray: #f0efef;
+    --off-black: #121212;
+    --dark-blue: #033048;
+    --white: #ffffff;
+    --yellow: #f9e42e;
+}
 html {
     font-family: 'Open Sans', sans-serif;
-    color: #033048;
-    background-color: #f0efef;
-}
-body {
-    display: grid;
-    grid-template-columns: 65% 35%;
-    grid-template-areas: 
-          "header header"
-          "main aside"
-          "section section"
-          "footer footer";
-    grid-column-gap: 1em;
-    justify-content: space-around;
+    color: var(--dark-blue);
+    background-color: var(--background-gray);
 }
 h2 {
     font-weight: 600;
@@ -31,39 +27,30 @@ h3 {
 }
 a {
     text-decoration: none;
-    color: #033048;
+    color: var(--dark-blue);
 }
 header {
-    background-color: #033048;
-    color: #ffffff;
-    padding: 2em 4em;
-    grid-area: header;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 1rem 4rem;
 }
 main {
-    grid-area: main;
-    justify-content: center;
-    margin-left: 4em;
-    margin-bottom: 5em;
+    margin: 0 2rem 5rem 2rem;
 }
 article {
     font-size: 1.25em;
 }
 aside {
-    grid-area: aside;
-    padding: 2em 4em 0 0;
+    padding: 0 2rem;
     font-size: 1.25em;
 }
 #categories a {
     display: block;
 }
 footer {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: var(--off-black);
+    color: var(--white);
     text-align: center;
-    grid-area: footer;
 }
 aside div {
     padding-bottom: 2em;
@@ -72,19 +59,20 @@ p + a {
     font-weight: 600;
     font-size: 1.1em;
 }
-nav {
+header nav {
     font-size: 1em;
     font-weight: 600;
+    margin: 1.5rem 2rem;
 }
 header a {
-    color: #f9e42e;
-    padding-left: 3em;
+    color: var(--yellow);
+    display: block;
 }
 article a {
     font-weight: 600;
     display: block;
     text-align: right;
-    padding: 2em 0 1em;
+    padding: 2rem 2rem 1rem;
     border-bottom: 1px solid;
 }
 article p {
@@ -104,33 +92,31 @@ article img {
 }
 header img {
     height: 2em;
-    margin-left: -3em;
 }
 footer img {
     margin-top: 2em;
     height: 2em;
 }
 i {
-    color: #ffffff;
+    color: var(--white);
     padding: 1em;
     font-size: 2em;
 }
 #ad {
-    background-color: #ffffff;
+    background-color: var(--white);
     width: 20vw;
     height: 500px;
     text-align: center;
-    padding: 1em;
+    padding: 1rem 2rem;
 }
 #cta {
-    background-color: #f9e42e;
+    background-color: var(--yellow);
     padding: 2em;
-    grid-area: section;
     text-align: center;
 }
 #cta button {
-    background-color: #033048;
-    color: #ffffff;
+    background-color: var(--dark-blue);
+    color: var(--white);
     font-weight: 600;
     font-size: 1.5em;
     padding: 1rem 2rem; 
@@ -141,4 +127,45 @@ footer::after {
     content: 'Copyright 2015. Relaxr.';
     display: block;
     padding-bottom: 2em;
+}
+@media (min-width: 768px) {
+    body {
+        display: grid;
+        grid-template-columns: 65% 35%;
+        grid-template-areas: 
+              "header header"
+              "main aside"
+              "section section"
+              "footer footer";
+        grid-column-gap: 1em;
+        justify-content: space-around;
+    }
+    header {
+        grid-area: header;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+    header nav {
+        position: static;
+        display: flex !important;
+        width: 50%;
+        justify-content: space-between;
+        float: right;
+    }
+    main {
+        grid-area: main;
+        justify-content: center;
+        margin: 0 0 4rem 5rem;
+    }
+    aside {
+        grid-area: aside;
+        padding: 2rem 4rem 0 0;
+    }
+    #cta {
+        grid-area: section;
+    }
+    footer {
+        grid-area: footer;
+    }
 }
