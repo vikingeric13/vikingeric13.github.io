@@ -6,36 +6,165 @@
 }
 html {
     font-family: 'Work Sans', sans-serif;
+    background-image: linear-gradient(to top, #21295C 0%, #98C1D9 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
 }
 h1 {
     text-align: center;
-    color: white;
+    opacity: .9;
+}
+h2 {
+    padding-top: 2rem;
+}
+h3 {
+    padding-top: 3rem;
 }
 a {
     text-decoration: none;
+    color: #ffffff;
+}
+p {
+    font-size: 1.25rem;
 }
 header {
-    display: block;
-    background: linear-gradient(135deg, maroon, skyblue);
-    border-bottom: .025rem solid gray;
+    text-align: center;
+    background: rgba(33,41,92,.5);
+    width: 100vw;
+    padding: 1.5rem;
+}
+header a {
+    font-size: 2rem;
+    font-weight: 700;
 }
 main {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+footer {
     text-align: center;
     padding: 2rem;
 }
 label {
     display: block;
-}
-input {
-    display: block;
+    padding: 2.5rem 0 1rem;
 }
 button {
-    display: block;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #821019;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+button:hover {
+    background: #821019;
+    opacity: .8;
+}
+button:active{
+    position: relative;
+    top: .15rem;
 }
 #o-menu {
-    float: right;
+    align-content: right;
+    display: inline;
+    font-size: 2rem;
 }
 #c-menu {
-    float: right;
+    text-align: right;
     display: none;
+}
+main i {
+    padding: 2rem;
+    font-size: 4rem;
+    opacity: .8;
+}
+input {
+    width: 15rem;
+    border: 0;
+    padding: .5rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+}
+select {
+    width: 15rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    background: #ffffff;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+#basicQuestions {
+    display: none;
+    text-align: center;
+}
+#results {
+    display: none;
+}
+#greatIdea {
+    display: none;
+}
+#maybe {
+    display: none;
+}
+#dontdoit {
+    display: none;
+}
+#fixedMiles {
+    display: none;
+}
+#variableMiles {
+    display: none;
+}
+#premiumCabinShortFlight {
+    display: none;
+}
+#premiumCabinLongFlight {
+    display: none;
+}
+#mainCabinShortFlight {
+    display: none;
+}
+#mainCabinLongFlight {
+    display: none;
+}
+#additionalQuestions {
+    display: none;
+}
+#about {
+    text-align: left;
+}
+.goBack {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 1.25rem;
+}
+.goBack i {
+    font-size: 1.5rem;
+    margin-left: -4rem;
+    margin-right: -1rem;
+}
+footer::after {
+    content: "\00a9  2018 Eric Hansen";
+    margin: 2rem 0;
+    font-size: .75rem;
+}
+@media (min-width: 769px) {
+    header {
+        text-align: left;
+        padding-left: 5rem;
+    }
 }

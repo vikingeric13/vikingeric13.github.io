@@ -10,21 +10,97 @@
 </head>
 <body>
     <header>
-        <h1>Pointr</h1>
-        <i class="fas fa-bars"></i>
-        <i class="fas fa-times"></i>
+        <a href="./index.html">Pointr</a>
     </header>
     <main>
-        <i class="fas fa-plane-departure"></i>
-        <p>Think it's time to use your miles?</p>
-        <p>Find out if that's the right move.</p>
-        <a href="basic_questions.html"><button>Prepare for takeoff</button></a>
+        <section id="getStarted">
+            <i class="fas fa-plane-departure"></i>
+            <p>Think it's time to use your miles?</p>
+            <p>Find out if that's the right move.</p>
+            <button id="start">Prepare for takeoff</button>
+        </section>
+        <section id="basicQuestions">
+            <i class="fas fa-plane"></i>
+            <div class="questions">
+                <label for="miles">Miles required</label>
+                <input type="number" name="number of miles" id="miles">
+                <label for="price">Cost in dollars</label>
+                <input type="number" name="cost in dollars" id="price">
+            </div>
+            <button id="basic">Check</button>
+        </section>
+        <section id="results">
+                <i class="fas fa-plane-arrival"></i>
+            <span id="greatIdea">
+                <h2>That's a great idea!</h2>
+                <p>Based on those numbers you'll get an outsized value for your miles.</p>
+            </span>
+            <span id="maybe">
+                <h2>Maybe, just maybe</h2>
+                <p>Based on those numbers you'll get about what your miles are worth. You can always try for better.</p>
+            </span>
+            <span id="dontdoit">
+                <h2>I wouldn't if I were you</h2>
+                <p>Based on those numbers this isn't a great redemption value. Unless you're strapped for cash and really need the free flight, look a little harder!</p>
+            </span>
+            <span id="fixedMiles">
+                <h3>Fixed Value Miles</h3>
+                <p>jetBlue and Southwest offer something more like a rebate as miles than other airlines. If you have what you need to redeem, go ahead.</p>
+            </span>
+            <span id="variableMiles">
+                <h3>Variable Value Miles</h3>
+                <p>Most airlines offer the kind of miles that make you wonder if you're getting a good deal. If you're getting less than 1.5cents per mile of value, it's probably best to keep trying.</p>
+            </span>
+            <span id="premiumCabinShortFlight">
+                <h3>Necessary? I think... maybe not?</h3>
+                <p>Sitting up front is decidedly a treat. For such a short flight, maybe you'd be better off saving that treat for another time.</p>
+            </span>
+            <span id="premiumCabinLongFlight">
+                <h3>Premium Cabins</h3>
+                <p>Good choice. You'll be thanking yourself when you've had that third glass of champagne.</p>
+            </span>
+            <span id="mainCabinShortFlight">
+                <h3>Short Flights</h3>
+                <p>Nice decision. No reason to spend more on a short flight.</p>
+            </span>
+            <span id="mainCabinLongFlight">
+                <h3>Have you thought of moving up?</h3>
+                <p>If you have the miles, now might be the time to use them. Long flights take it out of you and sitting in a better seat with a little more service.</p>
+            </span>
+            <h3>Want to refine the recommendation?</h3>
+            <button id="additional">Extra questions</button>
+        </section>
+        <section id="additionalQuestions">
+                <i class="fas fa-plane"></i>
+                <div class="questions">
+                <label for="airline">Airline's Miles</label>
+                <select id="airline">
+                    <option value="american">American</option>
+                    <option value="delta">Delta</option>
+                    <option value="jetblue">jetBlue</option>
+                    <option value="southwest">Southwest</option>
+                    <option value="united">United</option>
+                </select>
+                <label for="class">Class of service</label>
+                <select id="class">
+                    <option value="first">First</option>
+                    <option value="business">Business</option>
+                    <option value="mainCabin">Main Cabin</option>
+                </select>
+                <label for="length">Length of flight(s)</label>
+                <select id="length">
+                    <option value="under3">Under 3 hours</option>
+                    <option value="between35">Between 3 and 5 hours</option>
+                    <option value="over5">Over 5 hours</option>
+                </select>
+                </div>
+                <button id="thatsIt">Check again</button>
+        </section>
     </main>
-    <aside>
-
-    </aside>
     <footer>
-
+        <nav>
+            <a href="./about.html">About</a>
+        </nav>
     </footer>
     <script>
     </script>
