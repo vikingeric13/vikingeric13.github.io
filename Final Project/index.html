@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <a href="./index.html">Pointr</a>
+        <a href="./index.html" class="home">Pointr</a>
     </header>
     <main>
         <section id="getStarted">
@@ -67,8 +67,8 @@
                 <h3>Have you thought of moving up?</h3>
                 <p>If you have the miles, now might be the time to use them. Long flights take it out of you and sitting in a better seat with a little more service.</p>
             </span>
-            <h3>Want to refine the recommendation?</h3>
-            <button id="additional">Extra questions</button>
+            <h3 class="extra">Want to refine the recommendation?</h3>
+            <button class= "extra" id="additional">Extra questions</button>
         </section>
         <section id="additionalQuestions">
                 <i class="fas fa-plane"></i>
@@ -102,7 +102,36 @@
             <a href="./about.html">About</a>
         </nav>
     </footer>
+    <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
     <script>
+        $(document).ready(function(){
+            $('#start').click(function(){
+                $('#getStarted').css('display', 'none');
+                $('#basicQuestions').css('display', 'unset');
+            })
+            $('#basic').click(function(){
+
+                $('#basicQuestions').css('display', 'none');
+                $('#results').css('display', 'unset');
+            })
+            $('#additional').click(function(){
+
+                $('#results').css('display', 'none');
+                $('#additionalQuestions').css('display', 'unset');
+            })
+            $('#thatsIt').click(function(){
+
+                $('#additionalQuestions').css('display', 'none');
+                $('#results').css('display', 'unset');
+                $('.extra').css('display', 'none');
+            })
+            $('.home').click(function(){
+                $('#getStarted').css('display', 'unset');
+                $('#basicQuestions').css('display', 'none');
+                $('#additionalQuestions').css('display', 'none');
+                $('#results').css('display', 'none');
+            })
+        })
     </script>
 </body>
 </html>
