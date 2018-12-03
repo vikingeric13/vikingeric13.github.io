@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:100,300,700');
-
+:root {
+    --primary-color: #21295C;
+    --secondary-color: #821019;
+    --tertiary-color: #98c1d9;
+    --text-black: #191716;
+}
 * {
     box-sizing: border-box;
     margin: 0;
 }
 html {
     font-family: 'Work Sans', sans-serif;
-    background-image: linear-gradient(to top, #21295C 0%, #98C1D9 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #ffffff;
+    color: var(--text-black);
 }
 h1 {
     text-align: center;
@@ -23,20 +27,22 @@ h3 {
 }
 a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-black);
 }
 p {
     font-size: 1.25rem;
 }
 header {
     text-align: center;
-    background: rgba(33,41,92,.5);
+    background: var(--primary-color);
+    opacity: .9;
     width: 100vw;
     padding: 1.5rem;
 }
 header a {
     font-size: 2rem;
     font-weight: 700;
+    color: #ffffff;
 }
 main {
     text-align: center;
@@ -53,10 +59,10 @@ label {
     display: block;
     padding: 2.5rem 0 1rem;
 }
-button {
+.primary {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background: #821019;
+    background: var(--secondary-color);
     color: #ffffff;
     font-size: 1.5rem;
     border: none;
@@ -65,26 +71,53 @@ button {
     margin-top: 2rem;
 }
 button:hover {
-    background: #821019;
     opacity: .8;
 }
 button:active{
     position: relative;
     top: .15rem;
 }
-#o-menu {
-    align-content: right;
-    display: inline;
-    font-size: 2rem;
+.back {
+    display: inline-block;
+    padding: .5rem 1.5rem;
+    background: var(--tertiary-color);
+    color: var(--text-black);
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
 }
-#c-menu {
-    text-align: right;
-    display: none;
+.back:hover {
+    background: var(--tertiary-color);
+    opacity: .8;
+}
+.back:active{
+    position: relative;
+    top: .15rem;
+}
+#extraQuestions {
+    display: inline-block;
+    padding: .5rem 1rem;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 3rem 0 .5rem;
+}
+#extraQuestions i {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
 }
 main i {
     padding: 2rem;
     font-size: 4rem;
-    opacity: .8;
+    opacity: .9;
+    color: var(--primary-color);
 }
 input {
     width: 15rem;
@@ -92,12 +125,16 @@ input {
     padding: .5rem;
     font-size: 2rem;
     border-radius: 1rem;
+    background: var(--tertiary-color);
+    opacity: .8;
+    color: var(--text-black);
 }
 select {
     width: 15rem;
     height: 2rem;
     font-size: 1.5rem;
-    background: #ffffff;
+    background: var(--tertiary-color);
+    opacity: .8;
     overflow: hidden;
     border-radius: 1rem;
     border: none;
@@ -166,5 +203,13 @@ footer::after {
     header {
         text-align: left;
         padding-left: 5rem;
+    }
+    main {
+        padding: 0 10rem;
+    }
+}
+@media (min-width: 1025px) {
+    main {
+        padding: 0 16rem;
     }
 }

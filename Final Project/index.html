@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <title>Pointr</title>
+    <link rel="shortcut icon" 
+      type="image/x-icon" 
+      href="./images/favicon.ico">
+    <title>Fly for Miles</title>
 </head>
 <body>
     <header>
@@ -17,7 +20,7 @@
             <i class="fas fa-plane-departure"></i>
             <p>Think it's time to use your miles?</p>
             <p>Find out if that's the right move.</p>
-            <button id="start">Prepare for takeoff</button>
+            <button class="primary" id="start">Get going</button>
         </section>
         <section id="basicQuestions">
             <i class="fas fa-plane"></i>
@@ -26,8 +29,41 @@
                 <input type="number" name="number of miles" id="miles">
                 <label for="price">Cost in dollars</label>
                 <input type="number" name="cost in dollars" id="price">
+                <label for="airline">Airline's Miles</label>
+                <select id="airline">
+                    <option value="american">Alaska</option>
+                    <option value="american">American</option>
+                    <option value="delta">Delta</option>
+                    <option value="jetblue">jetBlue</option>
+                    <option value="southwest">Southwest</option>
+                    <option value="united">United</option>
+                </select>
+                <div>
+                <button id="extraQuestions">Refine your recommendation <i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
-            <button id="basic">Check</button>
+            <div>
+            <section id="additionalQuestions">
+                    <div class="questions">
+                    <label for="class">Class of service</label>
+                    <select id="class">
+                        <option value="first">First</option>
+                        <option value="business">Business</option>
+                        <option value="mainCabin">Main Cabin</option>
+                    </select>
+                    <label for="length">Length of flight(s)</label>
+                    <select id="length">
+                        <option value="under3">Under 3 hours</option>
+                        <option value="between35">Between 3 and 5 hours</option>
+                        <option value="over5">Over 5 hours</option>
+                    </select>
+                    </div>
+            </section>
+            </div>
+            <button class="primary" id="basic">Check</button>
+            <div>
+                <button class="back" id="basicReset">Reset</button>
+            </div>
         </section>
         <section id="results">
                 <i class="fas fa-plane-arrival"></i>
@@ -67,34 +103,7 @@
                 <h3>Have you thought of moving up?</h3>
                 <p>If you have the miles, now might be the time to use them. Long flights take it out of you and sitting in a better seat with a little more service.</p>
             </span>
-            <h3 class="extra">Want to refine the recommendation?</h3>
-            <button class= "extra" id="additional">Extra questions</button>
-        </section>
-        <section id="additionalQuestions">
-                <i class="fas fa-plane"></i>
-                <div class="questions">
-                <label for="airline">Airline's Miles</label>
-                <select id="airline">
-                    <option value="american">American</option>
-                    <option value="delta">Delta</option>
-                    <option value="jetblue">jetBlue</option>
-                    <option value="southwest">Southwest</option>
-                    <option value="united">United</option>
-                </select>
-                <label for="class">Class of service</label>
-                <select id="class">
-                    <option value="first">First</option>
-                    <option value="business">Business</option>
-                    <option value="mainCabin">Main Cabin</option>
-                </select>
-                <label for="length">Length of flight(s)</label>
-                <select id="length">
-                    <option value="under3">Under 3 hours</option>
-                    <option value="between35">Between 3 and 5 hours</option>
-                    <option value="over5">Over 5 hours</option>
-                </select>
-                </div>
-                <button id="thatsIt">Check again</button>
+            <button class="back" id="startOver">Start over</button>
         </section>
     </main>
     <footer>
@@ -107,27 +116,33 @@
         $(document).ready(function(){
             $('#start').click(function(){
                 $('#getStarted').css('display', 'none');
-                $('#basicQuestions').css('display', 'unset');
+                $('#basicQuestions').slideToggle();
             })
             $('#basic').click(function(){
 
+                var airline = $('#airline :selected').val();
                 $('#basicQuestions').css('display', 'none');
-                $('#results').css('display', 'unset');
+                $('#results').slideToggle();
+                if (airline = 'jetblue', 'southwest') {
+                    $('#fixedMiles').slideToggle();
+                } else {
+                    $('#variableMiles').slideToggle();
+                };
             })
-            $('#additional').click(function(){
-
-                $('#results').css('display', 'none');
-                $('#additionalQuestions').css('display', 'unset');
-            })
-            $('#thatsIt').click(function(){
-
-                $('#additionalQuestions').css('display', 'none');
-                $('#results').css('display', 'unset');
-                $('.extra').css('display', 'none');
+            $('#extraQuestions').click(function(){
+                $(this).toggle();
+                $('#additionalQuestions').slideToggle();
             })
             $('.home').click(function(){
                 $('#getStarted').css('display', 'unset');
                 $('#basicQuestions').css('display', 'none');
+                $('#additionalQuestions').css('display', 'none');
+                $('#results').css('display', 'none');
+            })
+            $('#startOver').click(function(){
+                
+                $('#getStarted').css('display', 'none');
+                $('#basicQuestions').css('display', 'unset');
                 $('#additionalQuestions').css('display', 'none');
                 $('#results').css('display', 'none');
             })
