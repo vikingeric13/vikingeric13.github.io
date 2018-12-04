@@ -14,6 +14,7 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--text-black);
+    -webkit-font-smoothing: antialiased;
 }
 h1 {
     text-align: center;
@@ -76,6 +77,13 @@ button:hover {
 button:active{
     position: relative;
     top: .15rem;
+}
+#price {
+    text-align: right;
+    width: 14rem;
+}
+#currency {
+    font-size: 2rem;
 }
 .back {
     display: inline-block;

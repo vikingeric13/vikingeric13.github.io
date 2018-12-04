@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <a href="./index.html" class="home">Pointr</a>
+        <a href="./index.html" class="home">Fly for Miles</a>
     </header>
     <main>
         <section id="getStarted">
@@ -26,17 +26,13 @@
             <i class="fas fa-plane"></i>
             <div class="questions">
                 <label for="miles">Miles required</label>
-                <input type="number" name="number of miles" id="miles">
+                <input type="number" name="number of miles" id="miles" required>
                 <label for="price">Cost in dollars</label>
-                <input type="number" name="cost in dollars" id="price">
+                    <span id="currency">$</span>
+                    <input type="number" name="cost in dollars" id="price" step="0.01" value="0.00" placeholder="0.00" required>
                 <label for="airline">Airline's Miles</label>
                 <select id="airline">
-                    <option value="american">Alaska</option>
-                    <option value="american">American</option>
-                    <option value="delta">Delta</option>
-                    <option value="jetblue">jetBlue</option>
-                    <option value="southwest">Southwest</option>
-                    <option value="united">United</option>
+                    <option disabled selected value="">Select an airline</option>
                 </select>
                 <div>
                 <button id="extraQuestions">Refine your recommendation <i class="fas fa-chevron-right"></i></button>
@@ -47,12 +43,14 @@
                     <div class="questions">
                     <label for="class">Class of service</label>
                     <select id="class">
+                        <option disabled selected value="">Select the class</option>
                         <option value="first">First</option>
                         <option value="business">Business</option>
                         <option value="mainCabin">Main Cabin</option>
                     </select>
                     <label for="length">Length of flight(s)</label>
                     <select id="length">
+                        <option disabled selected value="">Select how long</option>
                         <option value="under3">Under 3 hours</option>
                         <option value="between35">Between 3 and 5 hours</option>
                         <option value="over5">Over 5 hours</option>
@@ -114,20 +112,51 @@
     <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
+            let miles = '';
+            let cost = '';
+            let airline = '';
+
+            const airlines = [
+                ['Alaska', 'alaska', 1.8, 'variable'],
+                ['American', 'american', 1.4, 'variable'],
+                ['Delta', 'delta', 1.2, 'variable'],
+                ['jetBlue', 'jetblue', 1.3, 'fixed'],
+                ['Southwest', 'southwest', 1.5, 'fixed'],
+                ['United', 'united', 1.4, 'variable']
+            ];
+            for (let air of airlines) {
+                let line = air[0];
+                let value = air[1];
+                let optionTemplate = `
+                    <option value="${value}">${line}</option>
+                `
+            $('#airline').append(optionTemplate);
+            };
+
             $('#start').click(function(){
                 $('#getStarted').css('display', 'none');
                 $('#basicQuestions').slideToggle();
             })
             $('#basic').click(function(){
+                let miles = $('#miles').val();
+                let cost = $('#cost').val();
 
-                var airline = $('#airline :selected').val();
+                
+                let airline = $('#airline :selected').val();
+                if (airline == 'jetblue' || airline == 'southwest') {
+                    $('#fixedMiles').slideToggle();
+                }  else if  (airline == 'alaska' || airline == 'american' || airline == 'delta' || airline == 'united') {
+                    $('#variableMiles').slideToggle();
+                } else {
+                    $('#fixedmiles').css('display' , 'none');
+                    $('#variablemiles').css('display' , 'none');
+                };
+
+
+
+
                 $('#basicQuestions').css('display', 'none');
                 $('#results').slideToggle();
-                if (airline = 'jetblue', 'southwest') {
-                    $('#fixedMiles').slideToggle();
-                } else {
-                    $('#variableMiles').slideToggle();
-                };
             })
             $('#extraQuestions').click(function(){
                 $(this).toggle();
