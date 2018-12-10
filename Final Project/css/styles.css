@@ -11,10 +11,7 @@
 }
 html {
     font-family: 'Work Sans', sans-serif;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     color: var(--text-black);
-    -webkit-font-smoothing: antialiased;
 }
 h1 {
     text-align: center;
@@ -78,8 +75,10 @@ button:active{
     position: relative;
     top: .15rem;
 }
-#price {
+.numberInput {
     text-align: right;
+}
+#price {
     width: 14rem;
 }
 #currency {
@@ -122,9 +121,8 @@ button:active{
     padding: 0;
 }
 main i {
-    padding: 2rem;
+    padding: 2rem 0 1rem;
     font-size: 4rem;
-    opacity: .9;
     color: var(--primary-color);
 }
 input {
@@ -165,7 +163,7 @@ input[type=number]::-webkit-outer-spin-button {
 #maybe {
     display: none;
 }
-#dontdoit {
+#dontDoIt {
     display: none;
 }
 #fixedMiles {
@@ -192,7 +190,7 @@ input[type=number]::-webkit-outer-spin-button {
 #about {
     text-align: left;
 }
-.goBack {
+/* .goBack {
     text-align: left;
     margin-left: 2rem;
     font-size: 1.25rem;
@@ -201,7 +199,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.5rem;
     margin-left: -4rem;
     margin-right: -1rem;
-}
+} */
 footer::after {
     content: "\00a9  2018 Eric Hansen";
     margin: 2rem 0;

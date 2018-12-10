@@ -26,10 +26,10 @@
             <i class="fas fa-plane"></i>
             <div class="questions">
                 <label for="miles">Miles required</label>
-                <input type="number" name="number of miles" id="miles" required>
+                <input type="number" name="number of miles" id="miles" class="numberInput" maxlength="7" required>
                 <label for="price">Cost in dollars</label>
-                    <span id="currency">$</span>
-                    <input type="number" name="cost in dollars" id="price" step="0.01" value="0.00" placeholder="0.00" required>
+                <span id="currency">$</span>
+                <input type="number" name="cost in dollars" id="price" class="numberInput" step="0.01" value="0.00" placeholder="0.00" onfocus="this.value=''" required>
                 <label for="airline">Airline's Miles</label>
                 <select id="airline">
                     <option disabled selected value="">Select an airline</option>
@@ -59,9 +59,9 @@
             </section>
             </div>
             <button class="primary" id="basic">Check</button>
-            <div>
+            <!-- <div>
                 <button class="back" id="basicReset">Reset</button>
-            </div>
+            </div> -->
         </section>
         <section id="results">
                 <i class="fas fa-plane-arrival"></i>
@@ -73,7 +73,7 @@
                 <h2>Maybe, just maybe</h2>
                 <p>Based on those numbers you'll get about what your miles are worth. You can always try for better.</p>
             </span>
-            <span id="dontdoit">
+            <span id="dontDoIt">
                 <h2>I wouldn't if I were you</h2>
                 <p>Based on those numbers this isn't a great redemption value. Unless you're strapped for cash and really need the free flight, look a little harder!</p>
             </span>
@@ -101,7 +101,7 @@
                 <h3>Have you thought of moving up?</h3>
                 <p>If you have the miles, now might be the time to use them. Long flights take it out of you and sitting in a better seat with a little more service.</p>
             </span>
-            <button class="back" id="startOver">Start over</button>
+            <!-- <button class="back" id="startOver">Start over</button> -->
         </section>
     </main>
     <footer>
@@ -114,38 +114,41 @@
         $(document).ready(function(){
             let miles = '';
             let cost = '';
-            let airline = '';
 
             const airlines = [
-                ['Alaska', 'alaska', 1.8, 'variable'],
-                ['American', 'american', 1.4, 'variable'],
-                ['Delta', 'delta', 1.2, 'variable'],
-                ['jetBlue', 'jetblue', 1.3, 'fixed'],
-                ['Southwest', 'southwest', 1.5, 'fixed'],
-                ['United', 'united', 1.4, 'variable']
+                {carrier: 'Alaska', milesValue: 1.8, pointsType: 'variable'},
+                {carrier: 'American', milesValue: 1.4, pointsType: 'variable'},
+                {carrier: 'Delta', milesValue: 1.2, pointsType: 'variable'},
+                {carrier: 'jetBlue', milesValue: 1.3, pointsType: 'fixed'},
+                {carrier: 'Southwest', milesValue: 1.5, pointsType: 'fixed'},
+                {carrier: 'United', milesValue: 1.4, pointsType: 'variable'}
             ];
-            for (let air of airlines) {
-                let line = air[0];
-                let value = air[1];
-                let optionTemplate = `
-                    <option value="${value}">${line}</option>
-                `
-            $('#airline').append(optionTemplate);
+            for (i=0; i < airlines.length; i++) {
+                $('#airline').append(`<option value="${i}">${airlines[i].carrier}</option>`);
             };
-
+        
             $('#start').click(function(){
                 $('#getStarted').css('display', 'none');
                 $('#basicQuestions').slideToggle();
             })
             $('#basic').click(function(){
-                let miles = $('#miles').val();
-                let cost = $('#cost').val();
+                let miles = parseFloat($('#miles').val());
+                let cost = parseFloat($('#price').val()) * 100;
+                var cpm = cost/miles;
+                let val = $('#airline :selected').val();
 
-                
-                let airline = $('#airline :selected').val();
-                if (airline == 'jetblue' || airline == 'southwest') {
+                if (cpm < airlines[val].milesValue) {
+                    $('#dontDoIt').slideToggle();
+                } else if (cpm === airlines[val].milesValue) {
+                    $('#maybe').slideToggle();
+                } else if (cpm > airlines[val].milesValue) {
+                    $('#greatIdea').slideToggle();
+                }
+
+
+                if (airlines[val].pointsType == 'fixed') {
                     $('#fixedMiles').slideToggle();
-                }  else if  (airline == 'alaska' || airline == 'american' || airline == 'delta' || airline == 'united') {
+                }  else if  (airlines[val].pointsType == 'variable') {
                     $('#variableMiles').slideToggle();
                 } else {
                     $('#fixedmiles').css('display' , 'none');
@@ -157,25 +160,34 @@
 
                 $('#basicQuestions').css('display', 'none');
                 $('#results').slideToggle();
-            })
+            });
             $('#extraQuestions').click(function(){
                 $(this).toggle();
                 $('#additionalQuestions').slideToggle();
-            })
+            });
             $('.home').click(function(){
                 $('#getStarted').css('display', 'unset');
                 $('#basicQuestions').css('display', 'none');
                 $('#additionalQuestions').css('display', 'none');
                 $('#results').css('display', 'none');
-            })
+            });
             $('#startOver').click(function(){
                 
                 $('#getStarted').css('display', 'none');
                 $('#basicQuestions').css('display', 'unset');
                 $('#additionalQuestions').css('display', 'none');
                 $('#results').css('display', 'none');
-            })
-        })
+            });
+            // function commaSeparateNumber(val){
+            //     while (/(\d+)(\d{3})/.test(val.toString())){
+            //     val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+            //     }
+            //     return val;
+            // }
+
+            
+        });
+        
     </script>
 </body>
 </html>
