@@ -145,9 +145,11 @@
                     $('#greatIdea').slideToggle();
                 }
 
-
                 if (airlines[val].pointsType == 'fixed') {
                     $('#fixedMiles').slideToggle();
+                    $('#dontDoIt').css('display', 'none');
+                    $('#maybe').css('display', 'none');
+                    $('#greatIdea').css('display', 'none');
                 }  else if  (airlines[val].pointsType == 'variable') {
                     $('#variableMiles').slideToggle();
                 } else {
