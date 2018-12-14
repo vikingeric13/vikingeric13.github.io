@@ -34,29 +34,23 @@
                 <select id="airline">
                     <option disabled selected value="">Select an airline</option>
                 </select>
-                <div>
+                <!-- <div>
                 <button id="extraQuestions">Refine your recommendation <i class="fas fa-chevron-right"></i></button>
-                </div>
+                </div> -->
             </div>
             <div>
-            <section id="additionalQuestions">
+            <!-- <section id="additionalQuestions">
                     <div class="questions">
                     <label for="class">Class of service</label>
                     <select id="class">
                         <option disabled selected value="">Select the class</option>
-                        <option value="first">First</option>
-                        <option value="business">Business</option>
-                        <option value="mainCabin">Main Cabin</option>
                     </select>
                     <label for="length">Length of flight(s)</label>
                     <select id="length">
                         <option disabled selected value="">Select how long</option>
-                        <option value="under3">Under 3 hours</option>
-                        <option value="between35">Between 3 and 5 hours</option>
-                        <option value="over5">Over 5 hours</option>
                     </select>
                     </div>
-            </section>
+            </section> -->
             </div>
             <button class="primary" id="basic">Check</button>
             <!-- <div>
@@ -78,14 +72,14 @@
                 <p>Based on those numbers this isn't a great redemption value. Unless you're strapped for cash and really need the free flight, look a little harder!</p>
             </span>
             <span id="fixedMiles">
-                <h3>Fixed Value Miles</h3>
-                <p>jetBlue and Southwest offer something more like a rebate as miles than other airlines. If you have what you need to redeem, go ahead.</p>
+                <h2>Fixed Value Miles</h2>
+                <p>jetBlue and Southwest offer something more like a rebate as miles than other airlines. If you have what you need to redeem, do it!</p>
             </span>
             <span id="variableMiles">
                 <h3>Variable Value Miles</h3>
                 <p>Most airlines offer the kind of miles that make you wonder if you're getting a good deal. If you're getting less than 1.5cents per mile of value, it's probably best to keep trying.</p>
             </span>
-            <span id="premiumCabinShortFlight">
+            <!-- <span id="premiumCabinShortFlight">
                 <h3>Necessary? I think... maybe not?</h3>
                 <p>Sitting up front is decidedly a treat. For such a short flight, maybe you'd be better off saving that treat for another time.</p>
             </span>
@@ -100,7 +94,7 @@
             <span id="mainCabinLongFlight">
                 <h3>Have you thought of moving up?</h3>
                 <p>If you have the miles, now might be the time to use them. Long flights take it out of you and sitting in a better seat with a little more service.</p>
-            </span>
+            </span> -->
             <!-- <button class="back" id="startOver">Start over</button> -->
         </section>
     </main>
@@ -126,16 +120,33 @@
             for (i=0; i < airlines.length; i++) {
                 $('#airline').append(`<option value="${i}">${airlines[i].carrier}</option>`);
             };
+
+            // const seat = [
+            //     {class: 'First/Business'},
+            //     {class: 'Main Cabin/Economy'}
+            // ]
+            // for (i=0; i < class.length; i++) {
+            //     $('#class').append(`<option value="${i}">${seat[i].class}</option>`);
+            // };
+            // const flight = [
+            //     {time: '<4 hours'},
+            //     {time: '>4 hours'}
+            // ]
+            // for (i=0; i < flight.length; i++) {
+            //     $('#length').append(`<option value="${i}">${flight[i].time}</option>`);
+            // };
         
             $('#start').click(function(){
                 $('#getStarted').css('display', 'none');
                 $('#basicQuestions').slideToggle();
             })
             $('#basic').click(function(){
-                let miles = parseFloat($('#miles').val());
+                let miles = parseInt($('#miles').val());
                 let cost = parseFloat($('#price').val()) * 100;
                 var cpm = cost/miles;
                 let val = $('#airline :selected').val();
+                let c = $('#class :selected').val();
+                let l = $('#length :selected').val();
 
                 if (cpm < airlines[val].milesValue) {
                     $('#dontDoIt').slideToggle();
@@ -157,7 +168,20 @@
                     $('#variablemiles').css('display' , 'none');
                 };
 
-
+                // if (seat[c].class == 'First/Business' && flight[l].time == '<4 hours') {
+                //     $('#premiumCabinShortFlight').slideToggle();
+                // }  else if  (seat[c].class == 'First/Business' && flight[l].time == '>4 hours') {
+                //     $('#premiumCabinLongFlight').slideToggle();
+                // } else if  (seat[c].class == 'Main Cabin/Economy' && flight[l].time == '>4 hours') {
+                //     $('#mainCabinLongFlight').slideToggle();
+                // } else if  (seat[c].class == 'Main Cabin/Economy' && flight[l].time == '<4 hours') {
+                //     $('#mainCabinShortFlight').slideToggle();
+                // } else {
+                //     $('#mainCabinShortFlight').css('display', 'none');
+                //     $('#mainCabinLongFlight').css('display', 'none');
+                //     $('#premiumCabinLongFlight').css('display', 'none');
+                //     $('#premiumCabinShortFlight').css('display', 'none');
+                // };
 
 
                 $('#basicQuestions').css('display', 'none');
@@ -180,12 +204,6 @@
                 $('#additionalQuestions').css('display', 'none');
                 $('#results').css('display', 'none');
             });
-            // function commaSeparateNumber(val){
-            //     while (/(\d+)(\d{3})/.test(val.toString())){
-            //     val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
-            //     }
-            //     return val;
-            // }
 
             
         });
