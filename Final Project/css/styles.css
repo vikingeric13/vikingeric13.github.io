@@ -21,10 +21,10 @@ h2 {
     padding-top: 2rem;
 }
 h3 {
-    padding-top: 3rem;
+    padding-top: 2rem;
 }
 h4 {
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 }
 a {
     text-decoration: none;
@@ -201,6 +201,15 @@ input[type=number]::-webkit-outer-spin-button {
 .goBack i {
     font-size: 1.5rem;
     margin-left: -4rem;
+}
+#progress {
+    margin: 2rem;
+    height: auto;
+    width: 50vw;
+    display: none;
+}
+.rotated {
+    transform: rotate(30deg);
 }
 footer::after {
     content: "\00a9  2018 Eric Hansen";

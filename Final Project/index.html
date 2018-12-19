@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="shortcut icon" 
       type="image/x-icon" 
       href="./images/favicon.ico">
@@ -34,29 +35,17 @@
                 <select id="airline">
                     <option disabled selected value="">Select an airline</option>
                 </select>
-                <!-- <div>
-                <button id="extraQuestions">Refine your recommendation <i class="fas fa-chevron-right"></i></button>
-                </div> -->
             </div>
             <div>
-            <!-- <section id="additionalQuestions">
-                    <div class="questions">
-                    <label for="class">Class of service</label>
-                    <select id="class">
-                        <option disabled selected value="">Select the class</option>
-                    </select>
-                    <label for="length">Length of flight(s)</label>
-                    <select id="length">
-                        <option disabled selected value="">Select how long</option>
-                    </select>
-                    </div>
-            </section> -->
+
             </div>
             <button class="primary" id="basic">Check</button>
-            <!-- <div>
-                <button class="back" id="basicReset">Reset</button>
-            </div> -->
         </section>
+        <div id="progress">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -101 713.75189 713">
+                <path id="plane-path" fill-opacity="0" stroke-width="5" stroke="#821019" d="m85.085938 304.40625c-6.144532 2.882812-8.855469 10.140625-6.117188 16.34375l28.066406 60.25c1.378906 3 3.894532 5.335938 6.988282 6.488281 1.355468.492188 2.792968.746094 4.238281.746094 1.808593.015625 3.59375-.371094 5.238281-1.117187l212.054688-99.046876-19.207032 200.824219c-.371094 3.953125 1.152344 7.839844 4.109375 10.480469 9.296875 7.695312 20.882813 12.078125 32.9375 12.472656 3.324219-.003906 6.628907-.421875 9.851563-1.242187 17.214844-4.492188 30.5625-19.832031 39.667968-46.03125l83.449219-247.101563 165.273438-77.09375c48.648437-22.699218 73.71875-68.726562 56.882812-104.652344-9.554687-18.777343-27.855469-31.550781-48.773437-34.054687-23.242188-3.507813-46.996094.148437-68.105469 10.484375l-190.726563 89.433594-205.0625-80.207032c-25.824218-9.726562-46.277343-9.476562-60.621093.878907-12.035157 9.875-18.882813 24.71875-18.589844 40.285156.125 3.949219 2.113281 7.601563 5.363281 9.859375l138.082032 94.921875-79.078126 37.421875-132.601562-33.683594c-5.433594-1.335937-11.089844 1.113282-13.84375 5.988282l-33.050781 59.496093c-1.714844 3.152344-1.984375 6.894531-.738281 10.261719 1.238281 3.371094 3.871093 6.039062 7.226562 7.328125l98.167969 40.542969zm57.121093-248.09375c.734375-5.273438 3.402344-10.074219 7.488281-13.472656 7.113282-5.117188 20.085938-4.367188 37.421876 2.117187l182.617187 71.226563-83.328125 38.917968zm-112.257812 180.117188 21.703125-38.542969 127.605468 31.679687c2.75.695313 5.652344.433594 8.238282-.742187l414.75-193.71875c16.488281-8.132813 35.058594-11.09375 53.261718-8.484375 12.765626 1.175781 24.136719 8.542968 30.4375 19.707031 10.46875 22.457031-10.109374 55.261719-44.914062 71.476563l-143.695312 67.363281 8.734374-25.828125c2.207032-6.644532-1.398437-13.824219-8.042968-16.027344-6.652344-2.203125-13.828125 1.402344-16.03125 8.046875l-102.660156 305.476563c-6.113282 17.34375-13.722657 27.699218-22.203126 29.9375-5.253906 1.011718-10.691406-.019532-15.21875-2.863282l24.949219-261.953125c.652344-6.886719-4.398437-13-11.292969-13.652343-6.886718-.660157-13 4.398437-13.65625 11.285156l-3.863281 40.039062-214.054687 99.789063-17.578125-37.421875 35.167969-16.460938c4.527343-1.996094 7.445312-6.472656 7.445312-11.414062 0-4.945313-2.917969-9.421875-7.445312-11.414063zm0 0"/>
+            </svg>
+          </div>
         <section id="results">
                 <i class="fas fa-plane-arrival"></i>
             <span id="greatIdea">
@@ -88,23 +77,6 @@
                 <h4>Taxes, Fees, and their Evil Friends</h4>
                 <p>Taxes and fees can vary based on how you use your miles. Some airlines demand huge fuel surcharges for mileage redemptions, which can make paying for the flight more appealing than using miles. Sometimes it just means trying a different airline (e.g. using American AAdvantage miles to fly on American instead of British Airways).</p>
             </span>
-            <!-- <span id="premiumCabinShortFlight">
-                <h3>Necessary? I think... maybe not?</h3>
-                <p>Sitting up front is decidedly a treat. For such a short flight, maybe you'd be better off saving that treat for another time.</p>
-            </span>
-            <span id="premiumCabinLongFlight">
-                <h3>Premium Cabins</h3>
-                <p>Good choice. You'll be thanking yourself when you've had that third glass of champagne.</p>
-            </span>
-            <span id="mainCabinShortFlight">
-                <h3>Short Flights</h3>
-                <p>Nice decision. No reason to spend more on a short flight.</p>
-            </span>
-            <span id="mainCabinLongFlight">
-                <h3>Have you thought of moving up?</h3>
-                <p>If you have the miles, now might be the time to use them. Long flights take it out of you and sitting in a better seat with a little more service.</p>
-            </span> -->
-            <!-- <button class="back" id="startOver">Start over</button> -->
         </section>
     </main>
     <footer>
@@ -113,11 +85,11 @@
         </nav>
     </footer>
     <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
             let miles = '';
             let cost = '';
-
             const airlines = [
                 {carrier: 'Alaska', milesValue: 1.8, pointsType: 'variable'},
                 {carrier: 'American', milesValue: 1.4, pointsType: 'variable'},
@@ -129,22 +101,6 @@
             for (i=0; i < airlines.length; i++) {
                 $('#airline').append(`<option value="${i}">${airlines[i].carrier}</option>`);
             };
-
-            // const seat = [
-            //     {class: 'First/Business'},
-            //     {class: 'Main Cabin/Economy'}
-            // ]
-            // for (i=0; i < class.length; i++) {
-            //     $('#class').append(`<option value="${i}">${seat[i].class}</option>`);
-            // };
-            // const flight = [
-            //     {time: '<4 hours'},
-            //     {time: '>4 hours'}
-            // ]
-            // for (i=0; i < flight.length; i++) {
-            //     $('#length').append(`<option value="${i}">${flight[i].time}</option>`);
-            // };
-        
             $('#start').click(function(){
                 $('#getStarted').css('display', 'none');
                 $('#basicQuestions').slideToggle();
@@ -154,8 +110,17 @@
                 let cost = parseFloat($('#price').val()) * 100;
                 var cpm = cost/miles;
                 let val = $('#airline :selected').val();
-                let c = $('#class :selected').val();
-                let l = $('#length :selected').val();
+
+                drawPlane()
+                $('#progress').show();
+                
+                setInterval(function(){
+                    $('#progress').addClass('rotated animated lightSpeedOut');
+                }, 5000)
+                
+                setInterval(function(){
+                    $('#progress').hide();
+                }, 6000)
 
                 if (cpm < airlines[val].milesValue) {
                     $('#dontDoIt').slideToggle();
@@ -164,7 +129,6 @@
                 } else if (cpm > airlines[val].milesValue) {
                     $('#greatIdea').slideToggle();
                 }
-
                 if (airlines[val].pointsType == 'fixed') {
                     $('#fixedMiles').slideToggle();
                     $('#dontDoIt').css('display', 'none');
@@ -176,23 +140,6 @@
                     $('#fixedmiles').css('display' , 'none');
                     $('#variablemiles').css('display' , 'none');
                 };
-
-                // if (seat[c].class == 'First/Business' && flight[l].time == '<4 hours') {
-                //     $('#premiumCabinShortFlight').slideToggle();
-                // }  else if  (seat[c].class == 'First/Business' && flight[l].time == '>4 hours') {
-                //     $('#premiumCabinLongFlight').slideToggle();
-                // } else if  (seat[c].class == 'Main Cabin/Economy' && flight[l].time == '>4 hours') {
-                //     $('#mainCabinLongFlight').slideToggle();
-                // } else if  (seat[c].class == 'Main Cabin/Economy' && flight[l].time == '<4 hours') {
-                //     $('#mainCabinShortFlight').slideToggle();
-                // } else {
-                //     $('#mainCabinShortFlight').css('display', 'none');
-                //     $('#mainCabinLongFlight').css('display', 'none');
-                //     $('#premiumCabinLongFlight').css('display', 'none');
-                //     $('#premiumCabinShortFlight').css('display', 'none');
-                // };
-
-
                 $('#basicQuestions').css('display', 'none');
                 $('#results').slideToggle();
             });
@@ -206,17 +153,15 @@
                 $('#additionalQuestions').css('display', 'none');
                 $('#results').css('display', 'none');
             });
-            $('#startOver').click(function(){
-                
-                $('#getStarted').css('display', 'none');
-                $('#basicQuestions').css('display', 'unset');
-                $('#additionalQuestions').css('display', 'none');
-                $('#results').css('display', 'none');
-            });
-
-            
+            function drawPlane() {
+                var bar = new ProgressBar.Path('#plane-path', {
+                    easing: 'easeInOut',
+                    duration: 8000
+                    });
+                bar.set(0);
+                bar.animate(1.0); 
+            } 
         });
-        
     </script>
 </body>
 </html>
